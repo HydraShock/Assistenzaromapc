@@ -115,7 +115,7 @@ export function CrimsonLampCardsSection({
     >
       <div
         aria-hidden="true"
-        className={`pointer-events-none absolute inset-0 z-0 bg-[url('/backgrounds/chat.png')] bg-cover bg-center ${styles.photo}`}
+        className={`pointer-events-none absolute inset-0 z-0 bg-[url('/backgrounds/chat.webp')] bg-cover bg-center ${styles.photo}`}
       />
       <div aria-hidden="true" className={`pointer-events-none absolute inset-0 z-0 ${styles.tone}`} />
       <div aria-hidden="true" className={`pointer-events-none absolute inset-0 z-0 ${styles.radial}`} />

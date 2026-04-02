@@ -8,7 +8,7 @@ type CinematicBackgroundProps = {
 
 export function CinematicBackground({
   children,
-  backgroundImage = "/backgrounds/upscalemedia-transformed.png",
+  backgroundImage = "/backgrounds/upscalemedia-transformed.webp",
   backgroundPosition = "72% center",
 }: CinematicBackgroundProps) {
   return (

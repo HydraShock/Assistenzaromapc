@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import futureBackground from "@/future.png";
+import futureBackground from "@/future.webp";
 
 import { PhoneIcon, WhatsAppIcon } from "./icons";
 
@@ -29,7 +29,7 @@ export function LuxuryFooterSectionSaved() {
           src={futureBackground}
           alt=""
           fill
-          quality={100}
+          quality={75}
           sizes="100vw"
           className="object-cover object-center saturate-[1.12] contrast-[1.05] brightness-[0.93]"
           aria-hidden="true"

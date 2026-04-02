@@ -7,8 +7,8 @@ import { ArrowRight, MessageCircleMore } from "lucide-react";
 import { useSyncExternalStore } from "react";
 
 import { cn } from "@/lib/utils";
-import romaGiriBackground from "@/ROMAGIRI.png";
-import cazzo2Background from "@/cazzo2.png";
+import romaGiriBackground from "@/ROMAGIRI.webp";
+import cazzo2Background from "@/cazzo2.webp";
 
 const assistanceChips = ["7 giorni su 7", "Anche la sera", "Weekend", "PC e stampanti", "Reti Wi-Fi", "A domicilio"];
 
@@ -63,7 +63,7 @@ export function UltraRapidRomeSection() {
           src={romaGiriBackground}
           alt=""
           fill
-          quality={100}
+          quality={75}
           sizes="100vw"
           className="object-cover object-center saturate-[1.32] contrast-[1.06]"
           aria-hidden="true"
@@ -83,7 +83,7 @@ export function UltraRapidRomeSection() {
               src={cazzo2Background}
               alt=""
               fill
-              quality={100}
+              quality={75}
               sizes="(max-width: 1024px) 100vw, 1320px"
               className="object-cover object-center saturate-[1.06] contrast-[1.03]"
               aria-hidden="true"

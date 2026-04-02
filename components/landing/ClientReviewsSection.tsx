@@ -63,11 +63,11 @@ function ReviewCard({ review }: { review: Review }) {
   return (
     <article className="relative h-full overflow-hidden rounded-[26px] border border-[#ffd87a]/95 shadow-[0_0_0_1px_rgba(255,228,158,0.62),0_0_16px_rgba(255,211,108,0.48),0_0_46px_rgba(233,178,54,0.42),0_26px_44px_rgba(0,0,0,0.28)]">
       <Image
-        src="/backgrounds/sfondocard.png"
+        src="/backgrounds/sfondocard.webp"
         alt=""
         fill
         sizes="(max-width: 1024px) 100vw, 420px"
-        quality={100}
+        quality={75}
         className="pointer-events-none absolute inset-0 object-cover object-center scale-[1.08]"
         aria-hidden="true"
       />
@@ -137,7 +137,7 @@ export function ClientReviewsSection() {
     <section
       className="relative overflow-hidden bg-white py-16 md:py-20"
       style={{
-        backgroundImage: "url('/backgrounds/SFONDOTEST.PNG')",
+        backgroundImage: "url('/backgrounds/sfondotest.webp')",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
         backgroundSize: "cover",

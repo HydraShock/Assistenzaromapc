@@ -108,7 +108,7 @@ body {
 }
 
 .cinematic-bg {
-  background-image: url("/backgrounds/upscalemedia-transformed.png");
+  background-image: url("/backgrounds/upscalemedia-transformed.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -257,7 +257,7 @@ body {
 
 .services-luxury-section {
   background-color: #ffffff;
-  background-image: url("/backgrounds/SFONDOTEST.PNG");
+  background-image: url("/backgrounds/sfondotest.webp");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -343,7 +343,7 @@ body {
 
 .triage-section {
   background-color: #ffffff;
-  background-image: url("/backgrounds/puzza.png");
+  background-image: url("/backgrounds/puzza.webp");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1546,7 +1546,7 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image: url("/backgrounds/sfondocard.png");
+  background-image: url("/backgrounds/sfondocard.webp");
   background-position: center 18%;
   background-repeat: no-repeat;
   background-size: auto 140%;

@@ -5,7 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useState, useSyncExternalStore } from "react";
 
 import { cn } from "@/lib/utils";
-import ciccioBackground from "@/ciccio.png";
+import ciccioBackground from "@/ciccio.webp";
 
 type PremiumFaqItem = {
   question: string;
@@ -84,7 +84,7 @@ export function PremiumFaqSection({
       aria-labelledby={`${idPrefix}-heading`}
       className="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28"
       style={{
-        backgroundImage: "url('/backgrounds/SFONDOTEST2.PNG')",
+        backgroundImage: "url('/backgrounds/sfondotest2.webp')",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
         backgroundSize: "cover",
@@ -169,7 +169,7 @@ export function PremiumFaqSection({
                 src={rightCardBackground}
                 alt=""
                 fill
-                quality={100}
+                quality={75}
                 sizes="(max-width: 1024px) 100vw, 760px"
                 className="object-cover object-center opacity-90 saturate-[1.14] contrast-[1.08] brightness-[1.06]"
                 aria-hidden="true"

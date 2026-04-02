@@ -70,7 +70,7 @@ export function ServicesGridSection() {
       className="services-luxury-section relative overflow-hidden py-20 md:py-24"
       style={{
         fontFamily: "var(--font-space)",
-        backgroundImage: "url('/backgrounds/SFONDOTEST.PNG')",
+        backgroundImage: "url('/backgrounds/sfondotest.webp')",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
         backgroundSize: "cover",

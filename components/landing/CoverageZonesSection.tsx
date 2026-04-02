@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image, { type StaticImageData } from "next/image";
 
-import akaObject from "@/aka.png";
+import akaObject from "@/aka.webp";
 import { cn } from "@/lib/utils";
 
 const premiumZoneGroups = [
@@ -23,7 +23,16 @@ const premiumZoneGroups = [
 
 const legacyTopBadges = ["Intervento in giornata", "Copertura completa Roma", "7 giorni su 7"] as const;
 
-const legacyCoverageCards = [
+type LegacyCoverageCard = {
+  id: string;
+  badge: string;
+  title: string;
+  points: readonly string[];
+  desktopClass: string;
+  featured?: boolean;
+};
+
+const legacyCoverageCards: readonly LegacyCoverageCard[] = [
   {
     id: "centro",
     badge: "ROMA CENTRO STORICO",
@@ -81,7 +90,7 @@ const legacyCoverageCards = [
     points: ["Casal Palocco", "Axa", "Dragona"],
     desktopClass: "left-[4%] top-[63%] rotate-[0.7deg] xl:left-[6%]",
   },
-] as const;
+];
 
 const legacyFullCoverageByArea = [
   {
@@ -154,7 +163,7 @@ type CoverageZonesSectionProps = {
 };
 
 export function CoverageZonesSection({
-  backgroundImage = "/backgrounds/chat-zones-v2.png",
+  backgroundImage = "/backgrounds/chat-zones-v2.webp",
   className,
   compactText = false,
   premium = false,
@@ -204,7 +213,7 @@ function LegacyCoverageZonesSection({
           alt=""
           fill
           sizes="100vw"
-          quality={100}
+          quality={75}
           className="object-cover object-center opacity-34 blur-[1px] scale-[1.02] saturate-[1.45]"
           priority={false}
           aria-hidden="true"
@@ -216,7 +225,7 @@ function LegacyCoverageZonesSection({
           alt=""
           fill
           sizes="100vw"
-          quality={100}
+          quality={75}
           className="coverage-main-photo object-cover object-center saturate-[1.62] contrast-[1.2] brightness-[0.44]"
           priority={false}
           aria-hidden="true"
@@ -227,7 +236,7 @@ function LegacyCoverageZonesSection({
       <div
         className="pointer-events-none absolute inset-0 z-[2] opacity-[0.42] mix-blend-screen"
         style={{
-          backgroundImage: "url('/backgrounds/hero-bg-red.png')",
+          backgroundImage: "url('/backgrounds/hero-bg-red.webp')",
           backgroundPosition: "center",
           backgroundSize: "cover",
           filter: "saturate(1.95) contrast(1.28) brightness(0.7)",
@@ -498,7 +507,7 @@ function PremiumCoverageZonesSection({ backgroundImage, className }: PremiumCove
           alt=""
           fill
           sizes="100vw"
-          quality={100}
+          quality={75}
           className="object-cover object-center opacity-35 blur-[1.5px] scale-[1.04]"
           priority={false}
           aria-hidden="true"
@@ -510,7 +519,7 @@ function PremiumCoverageZonesSection({ backgroundImage, className }: PremiumCove
           alt=""
           fill
           sizes="100vw"
-          quality={100}
+          quality={75}
           className="object-cover object-center saturate-[1.18] contrast-[1.08]"
           priority={false}
           aria-hidden="true"
@@ -560,7 +569,7 @@ function PremiumCoverageZonesSection({ backgroundImage, className }: PremiumCove
 
           <div className="relative overflow-hidden rounded-[32px] border border-[#f5dfcb]/20 bg-[linear-gradient(160deg,rgba(13,8,9,0.78)_0%,rgba(10,5,6,0.7)_42%,rgba(18,7,10,0.66)_76%,rgba(10,4,5,0.74)_100%)] px-7 py-8 shadow-[0_40px_95px_rgba(0,0,0,0.62),0_12px_36px_rgba(61,8,12,0.3),inset_0_1px_0_rgba(255,245,230,0.11)] backdrop-blur-[10px] md:px-11 md:py-11 lg:px-12">
             <div
-              className="pointer-events-none absolute inset-0 bg-[url('/backgrounds/sfondocard.png')] bg-[position:center_18%] bg-no-repeat opacity-[0.58] mix-blend-screen [background-size:auto_140%]"
+              className="pointer-events-none absolute inset-0 bg-[url('/backgrounds/sfondocard.webp')] bg-[position:center_18%] bg-no-repeat opacity-[0.58] mix-blend-screen [background-size:auto_140%]"
               style={{ filter: "saturate(1.5) hue-rotate(-14deg) contrast(1.08) brightness(0.8)" }}
             />
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(145deg,rgba(255,243,227,0.09)_0%,rgba(255,243,227,0)_34%),radial-gradient(circle_at_66%_0%,rgba(204,86,72,0.2),transparent_44%),radial-gradient(circle_at_14%_88%,rgba(119,21,32,0.34),transparent_52%)]" />
@@ -648,7 +657,7 @@ function PremiumCoverageZonesSection({ backgroundImage, className }: PremiumCove
                   width={akaObject.width}
                   height={akaObject.height}
                   sizes="(max-width: 1024px) 88vw, 560px"
-                  quality={100}
+                  quality={75}
                   className="h-auto w-full scale-[1.02] drop-shadow-[0_22px_42px_rgba(0,0,0,0.54)]"
                 />
               </div>

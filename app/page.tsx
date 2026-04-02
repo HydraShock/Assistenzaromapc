@@ -6,7 +6,7 @@ const localBusinessSchema = {
   "@type": ["LocalBusiness", "ProfessionalService"],
   name: siteConfig.name,
   url: siteConfig.siteUrl,
-  image: `${siteConfig.siteUrl}/backgrounds/chat.png`,
+  image: `${siteConfig.siteUrl}/backgrounds/chat.webp`,
   description:
     "Assistenza informatica a domicilio a Roma per riparazione PC e notebook, rete Wi-Fi, stampanti e supporto tecnico rapido.",
   telephone: siteConfig.phoneInternational,

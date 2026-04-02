@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 
-import futureBackground from "@/future.png";
+import futureBackground from "@/future.webp";
 
-import { PhoneIcon, WhatsAppIcon } from "./icons";
+import { PhoneIcon, WhatsAppIcon } from "../icons";
 
 const footerServices = [
   "Assistenza PC a domicilio",
@@ -29,7 +29,7 @@ export function LuxuryFooterSection() {
           src={futureBackground}
           alt=""
           fill
-          quality={100}
+          quality={75}
           sizes="100vw"
           className="object-cover object-center saturate-[1.22] contrast-[1.08] brightness-[0.86]"
           aria-hidden="true"

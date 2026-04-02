@@ -63,7 +63,7 @@ export const metadata: Metadata = {
       "Tecnico computer a Roma per assistenza a domicilio su PC, notebook, rete Wi-Fi, stampanti e urgenze informatiche.",
     images: [
       {
-        url: "/backgrounds/chat.png",
+        url: "/backgrounds/chat.webp",
         width: 1919,
         height: 767,
         alt: "Assistenza PC a domicilio in tutta Roma",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     title: "Assistenza PC a Domicilio Roma | Tecnico Computer Rapido",
     description:
       "Interventi rapidi a Roma su computer, notebook, rete e stampanti con supporto a domicilio.",
-    images: ["/backgrounds/chat.png"],
+    images: ["/backgrounds/chat.webp"],
   },
   robots: {
     index: true,
