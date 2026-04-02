@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image, { type StaticImageData } from "next/image";
+import Link from "next/link";
 
 import akaObject from "@/aka.webp";
 import { cn } from "@/lib/utils";
@@ -29,6 +30,7 @@ type LegacyCoverageCard = {
   title: string;
   points: readonly string[];
   desktopClass: string;
+  href: string;
   featured?: boolean;
 };
 
@@ -39,6 +41,7 @@ const legacyCoverageCards: readonly LegacyCoverageCard[] = [
     title: "Prati • Trastevere • Monti",
     points: ["Campo de' Fiori", "Piazza Navona", "Colosseo"],
     desktopClass: "left-[4%] top-[8%] -rotate-[1.2deg] xl:left-[6%]",
+    href: "/zone/roma-centro",
     featured: true,
   },
   {
@@ -47,6 +50,7 @@ const legacyCoverageCards: readonly LegacyCoverageCard[] = [
     title: "Parioli • Trieste • Nomentano",
     points: ["Flaminio", "Talenti", "Bufalotta"],
     desktopClass: "left-[36%] top-[7%] rotate-[1deg]",
+    href: "/zone/roma-nord",
   },
   {
     id: "nord-est",
@@ -54,6 +58,7 @@ const legacyCoverageCards: readonly LegacyCoverageCard[] = [
     title: "Fidene • Labaro • Prima Porta",
     points: ["Conca d'Oro", "Giustiniana", "Vigna Clara"],
     desktopClass: "right-[4%] top-[8%] -rotate-[1deg] xl:right-[6%]",
+    href: "/zone/roma-nord-est",
   },
   {
     id: "est",
@@ -61,6 +66,7 @@ const legacyCoverageCards: readonly LegacyCoverageCard[] = [
     title: "Tiburtina • Pietralata • Centocelle",
     points: ["Prenestina", "Pigneto", "Tor Bella Monaca"],
     desktopClass: "right-[8%] top-[36%] rotate-[0.8deg]",
+    href: "/zone/roma-est",
   },
   {
     id: "sud-est",
@@ -68,6 +74,7 @@ const legacyCoverageCards: readonly LegacyCoverageCard[] = [
     title: "Appio • Tuscolano • Cinecitta",
     points: ["Re di Roma", "Colli Albani", "Don Bosco"],
     desktopClass: "right-[4%] top-[63%] -rotate-[0.9deg]",
+    href: "/zone/roma-sud-est",
   },
   {
     id: "sud",
@@ -75,6 +82,7 @@ const legacyCoverageCards: readonly LegacyCoverageCard[] = [
     title: "Eur • Garbatella • Ostiense",
     points: ["Laurentina", "San Paolo", "Tor Marancia"],
     desktopClass: "left-[35%] top-[64%] rotate-[0.9deg]",
+    href: "/zone/roma-sud",
   },
   {
     id: "ovest",
@@ -82,6 +90,7 @@ const legacyCoverageCards: readonly LegacyCoverageCard[] = [
     title: "Monteverde • Portuense • Magliana",
     points: ["Aurelio", "Boccea", "Balduina"],
     desktopClass: "left-[10%] top-[36%] -rotate-[1.1deg]",
+    href: "/zone/roma-ovest",
   },
   {
     id: "litorale",
@@ -89,6 +98,7 @@ const legacyCoverageCards: readonly LegacyCoverageCard[] = [
     title: "Ostia • Acilia • Infernetto",
     points: ["Casal Palocco", "Axa", "Dragona"],
     desktopClass: "left-[4%] top-[63%] rotate-[0.7deg] xl:left-[6%]",
+    href: "/zone/roma-litorale",
   },
 ];
 
@@ -411,6 +421,12 @@ function LegacyCoverageZonesSection({
                     </span>
                   ))}
                 </div>
+                <Link
+                  href={card.href}
+                  className="mt-3 inline-flex items-center rounded-full border border-[rgba(255,138,138,0.66)] bg-[rgba(255,28,28,0.18)] px-2.5 py-1 text-[0.62rem] font-semibold text-[rgba(255,236,236,0.96)] transition hover:border-[rgba(255,174,174,0.9)] hover:bg-[rgba(255,44,44,0.28)]"
+                >
+                  Dettagli zona
+                </Link>
               </motion.article>
             ))}
           </div>
@@ -445,6 +461,12 @@ function LegacyCoverageZonesSection({
                     </span>
                   ))}
                 </div>
+                <Link
+                  href={card.href}
+                  className="mt-3 inline-flex items-center rounded-full border border-[rgba(255,138,138,0.66)] bg-[rgba(255,28,28,0.18)] px-2.5 py-1 text-[0.66rem] font-semibold text-[rgba(255,236,236,0.96)] transition hover:border-[rgba(255,174,174,0.9)] hover:bg-[rgba(255,44,44,0.28)]"
+                >
+                  Dettagli zona
+                </Link>
               </motion.article>
             ))}
           </div>

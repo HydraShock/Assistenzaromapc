@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 
+import { serviceAreaPages } from "@/lib/service-areas";
 import { siteConfig } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -12,5 +13,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     },
+    ...serviceAreaPages.map((area) => ({
+      url: `${siteConfig.siteUrl}/zone/${area.slug}`,
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.82,
+    })),
   ];
 }
