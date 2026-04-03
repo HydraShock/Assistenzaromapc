@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Star } from "lucide-react";
 
 import { CometCard } from "@/components/ui/comet-card";
+import { siteConfig } from "@/lib/seo";
 
 type Review = {
   id: string;
@@ -186,13 +187,16 @@ export function ClientReviewsSection() {
             </p>
             <p className="text-sm text-white/86">su Google</p>
           </div>
-          <button
-            type="button"
+          <a
+            href={siteConfig.googleReviewsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Apri tutte le recensioni su Google"
             className="relative z-10 inline-flex h-12 items-center justify-center rounded-full border border-[#f6dca4]/64 bg-[linear-gradient(145deg,#ff2d2d,#a1051e)] px-6 text-base font-semibold text-white shadow-[0_0_0_1px_rgba(247,213,138,0.26),0_12px_24px_rgba(128,6,18,0.52),0_0_24px_rgba(255,38,38,0.42)] transition-all hover:scale-[1.01]"
           >
             <span className="mr-2 text-[1.2rem] font-bold">G</span>
             Vedi tutte le recensioni su Google
-          </button>
+          </a>
         </div>
       </div>
     </section>

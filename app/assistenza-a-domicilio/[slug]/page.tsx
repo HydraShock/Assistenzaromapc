@@ -85,7 +85,7 @@ export async function generateMetadata({ params }: LocalArticlePageProps): Promi
   ];
 
   return {
-    title: `${post.metaTitle} | Assistenza Roma PC`,
+    title: post.metaTitle,
     description: post.description,
     keywords: metadataKeywords,
     authors: [{ name: post.author }],

@@ -9,10 +9,12 @@ export function generateStaticParams() {
 const guideRedirectMap: Record<string, string> = {
   "pc-lento-prati-roma-centro": "/assistenza-a-domicilio/i-5-problemi-piu-comuni-dei-pc-a-roma-e-come-li-risolviamo-a-domicilio",
   "wifi-instabile-parioli-roma-nord": "/assistenza-a-domicilio/i-5-problemi-piu-comuni-dei-pc-a-roma-e-come-li-risolviamo-a-domicilio",
+  "wifi-debole-labaro-roma-nord-est": "/servizi/assistenza-wifi-rete/roma-nord-est",
   "stampante-offline-eur-roma-sud": "/assistenza-a-domicilio/i-5-problemi-piu-comuni-dei-pc-a-roma",
   "virus-popup-tiburtina-roma-est": "/assistenza-a-domicilio/i-5-problemi-piu-comuni-dei-pc-a-roma-e-come-li-risolviamo-a-domicilio",
   "backup-file-monteverde-roma-ovest": "/assistenza-a-domicilio/tecnico-computer-domicilio-a-monteverde",
   "notebook-non-si-avvia-ostia-litorale": "/assistenza-a-domicilio/i-5-problemi-piu-comuni-dei-pc-a-roma",
+  "pc-rallenta-appio-roma-sud-est": "/servizi/pc-lento-ottimizzazione/roma-sud-est",
   "tecnico-computer-domicilio-laurentina": "/assistenza-a-domicilio/tecnico-computer-a-domicilio-a-laurentina",
   "assistenza-pc-tuscolana-cinecitta": "/assistenza-a-domicilio/tecnico-computer-a-domicilio-a-tuscolana",
 };

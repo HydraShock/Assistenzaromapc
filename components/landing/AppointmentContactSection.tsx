@@ -20,6 +20,7 @@ import { WizardNavigation } from "./wizard/WizardNavigation";
 import { type ServiceOption, WizardProblemStep } from "./wizard/WizardProblemStep";
 import { WizardShell } from "./wizard/WizardShell";
 import { WizardStepper } from "./wizard/WizardStepper";
+import { siteConfig } from "@/lib/seo";
 
 const steps = ["Quando", "Aiuto", "Contatti"] as const;
 
@@ -119,6 +120,7 @@ export function AppointmentContactSection() {
     email: "",
     zone: "",
   });
+  const [submitFeedback, setSubmitFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
   const selectedService = useMemo(
     () => serviceOptions.find((service) => service.id === selectedServiceId) ?? null,
@@ -166,7 +168,42 @@ export function AppointmentContactSection() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!canSubmit) return;
+    if (!canSubmit) {
+      setSubmitFeedback({
+        type: "error",
+        message: "Completa tutti i campi obbligatori prima di inviare la richiesta.",
+      });
+      return;
+    }
+
+    const messageLines = [
+      "Nuova richiesta assistenza da sito",
+      `Nome: ${customerDetails.name.trim()}`,
+      `Telefono: ${customerDetails.phone.trim()}`,
+      `Email: ${customerDetails.email.trim() || "-"}`,
+      `Zona: ${customerDetails.zone.trim()}`,
+      `Disponibilita: ${availabilityLabel || "-"}`,
+      `Servizio: ${selectedService?.title ?? "-"}`,
+      `Problema: ${problemDescription.trim() || "-"}`,
+    ];
+    const whatsappTarget = siteConfig.phoneInternational.replace("+", "");
+    const whatsappUrl = `https://wa.me/${whatsappTarget}?text=${encodeURIComponent(messageLines.join("\n"))}`;
+
+    try {
+      const popup = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+      if (!popup) {
+        window.location.href = whatsappUrl;
+      }
+      setSubmitFeedback({
+        type: "success",
+        message: "Richiesta pronta: si apre WhatsApp con il messaggio precompilato.",
+      });
+    } catch {
+      setSubmitFeedback({
+        type: "error",
+        message: "Non sono riuscito ad aprire WhatsApp. Contattaci al 342 187 2127.",
+      });
+    }
   };
 
   return (
@@ -266,6 +303,17 @@ export function AppointmentContactSection() {
             isNextDisabled={currentStep === 1 ? !canProceedStep1 : !canProceedStep2}
             isSubmitDisabled={!canSubmit}
           />
+
+          {submitFeedback ? (
+            <p
+              role="status"
+              className={`mt-3 text-sm font-medium ${
+                submitFeedback.type === "success" ? "text-[#1f6d2d]" : "text-[#8f1d37]"
+              }`}
+            >
+              {submitFeedback.message}
+            </p>
+          ) : null}
 
           <input type="hidden" name="availability" value={availabilityLabel} />
           <input type="hidden" name="selected_services" value={selectedServiceId ?? ""} />
