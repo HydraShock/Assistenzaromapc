@@ -41,3 +41,13 @@ To run the production server with a clean rebuild:
 ```bash
 npm run start:prod
 ```
+
+## Environment Variables
+
+Create `.env.local` from `.env.example` and configure:
+
+- `NEXT_PUBLIC_SITE_URL`
+- `NEXT_PUBLIC_GOOGLE_REVIEWS_URL`
+- `NEXT_PUBLIC_GTM_ID` (recommended) or `NEXT_PUBLIC_GA4_MEASUREMENT_ID`
+
+Analytics scripts are loaded only when one of the analytics IDs is configured.

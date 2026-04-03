@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cinzel, Inter, Space_Grotesk } from "next/font/google";
 
 import "./globals.css";
+import { AnalyticsScripts } from "@/components/analytics/AnalyticsScripts";
 import { siteConfig } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
@@ -102,6 +103,7 @@ export default function RootLayout({
   return (
     <html lang="it" className={cn("font-sans")}>
       <body className={`${inter.variable} ${spaceGrotesk.variable} ${cinzel.variable} bg-[#050505] text-white antialiased`}>
+        <AnalyticsScripts />
         {children}
       </body>
     </html>
