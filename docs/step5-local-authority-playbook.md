@@ -16,7 +16,7 @@ Aumentare autorita locale, segnali di fiducia e visibilita SERP sulle query con 
 ## Setup strumenti (giorno 1)
 1. Google Search Console
 - Verifica proprieta dominio.
-- Invia sitemap: https://assistenzaromapc.it/sitemap.xml
+- Invia sitemap: https://www.assistenzaromapc.it/sitemap.xml
 - Controlla Copertura, Core Web Vitals, Enhancements.
 
 2. Google Business Profile

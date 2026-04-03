@@ -50,4 +50,6 @@ Create `.env.local` from `.env.example` and configure:
 - `NEXT_PUBLIC_GOOGLE_REVIEWS_URL`
 - `NEXT_PUBLIC_GTM_ID` (recommended) or `NEXT_PUBLIC_GA4_MEASUREMENT_ID`
 
+Use `https://www.assistenzaromapc.it` as canonical value for `NEXT_PUBLIC_SITE_URL` in production.
+
 Analytics scripts are loaded only when one of the analytics IDs is configured.

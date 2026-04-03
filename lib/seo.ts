@@ -1,6 +1,29 @@
+const DEFAULT_SITE_URL = "https://www.assistenzaromapc.it";
+
+function normalizeCanonicalSiteUrl(rawValue: string): string {
+  try {
+    const candidate = /^https?:\/\//i.test(rawValue) ? rawValue : `https://${rawValue}`;
+    const parsed = new URL(candidate);
+
+    // Keep canonical host consistent with Vercel primary domain configuration.
+    if (parsed.hostname === "assistenzaromapc.it") {
+      parsed.hostname = "www.assistenzaromapc.it";
+    }
+
+    parsed.protocol = "https:";
+    parsed.pathname = "/";
+    parsed.search = "";
+    parsed.hash = "";
+
+    return parsed.toString().replace(/\/$/, "");
+  } catch {
+    return DEFAULT_SITE_URL;
+  }
+}
+
 export const siteConfig = {
   name: "Assistenza Roma PC",
-  siteUrl: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.assistenzaromapc.it").replace(/\/$/, ""),
+  siteUrl: normalizeCanonicalSiteUrl(process.env.NEXT_PUBLIC_SITE_URL ?? DEFAULT_SITE_URL),
   phoneInternational: "+393421872127",
   phoneDisplay: "3421872127",
   googleReviewsUrl:
