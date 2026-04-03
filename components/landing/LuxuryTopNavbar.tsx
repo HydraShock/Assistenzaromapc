@@ -125,7 +125,7 @@ export function LuxuryTopNavbar() {
         <div
           className={cn(
             "relative flex items-center justify-between gap-3 px-4 sm:px-6 lg:px-7",
-            compact ? "py-2.5 lg:py-2.5" : "py-3 lg:py-3.5",
+            compact ? "py-1.5 lg:py-1.5" : "py-2 lg:py-2.5",
           )}
         >
           <Link
@@ -136,13 +136,13 @@ export function LuxuryTopNavbar() {
             }}
             className="group inline-flex shrink-0 items-center"
           >
-            <span className="relative block h-9 w-[220px] shrink-0 sm:h-10 sm:w-[268px] md:h-11 md:w-[300px] lg:h-12 lg:w-[340px]">
+            <span className="relative block h-8 w-[160px] shrink-0 sm:h-9 sm:w-[180px] md:h-10 md:w-[200px] lg:h-11 lg:w-[220px]">
               <Image
-                src="/brand/assistenza-roma-pc-menu-cut.webp"
+                src="/brand/cadeuco.png"
                 alt="Assistenza Roma PC"
                 fill
-                sizes="(max-width: 640px) 220px, (max-width: 768px) 268px, (max-width: 1024px) 300px, 340px"
-                className="object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]"
+                sizes="(max-width: 640px) 160px, (max-width: 768px) 180px, (max-width: 1024px) 200px, 220px"
+                className="scale-[1.14] object-contain object-center drop-shadow-[0_0_8px_rgba(255,120,140,0.35)] transition-transform duration-300 group-hover:scale-[1.17]"
                 priority
               />
             </span>

@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Assistenza Roma PC",
-  siteUrl: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://assistenzaromapc.it").replace(/\/$/, ""),
+  siteUrl: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.assistenzaromapc.it").replace(/\/$/, ""),
   phoneInternational: "+393421872127",
   phoneDisplay: "3421872127",
   googleReviewsUrl:

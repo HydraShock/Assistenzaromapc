@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ComponentType } from "react";
+import { useEffect, useRef, useState, type ComponentType } from "react";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -26,7 +26,26 @@ export function WizardProblemStep({
   onSelectService,
   onDescriptionChange,
 }: WizardProblemStepProps) {
-  const [showDetails, setShowDetails] = useState(false);
+  const [manualDetailsOpen, setManualDetailsOpen] = useState(false);
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const optionalWrapRef = useRef<HTMLDivElement | null>(null);
+  const wasAutoOpenRef = useRef(false);
+  const autoDetailsOpen = selectedServiceId === "non-so";
+  const showDetails = manualDetailsOpen || autoDetailsOpen;
+
+  useEffect(() => {
+    if (autoDetailsOpen && !wasAutoOpenRef.current) {
+      requestAnimationFrame(() => {
+        optionalWrapRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+
+      window.setTimeout(() => {
+        textareaRef.current?.focus({ preventScroll: true });
+      }, 220);
+    }
+
+    wasAutoOpenRef.current = autoDetailsOpen;
+  }, [autoDetailsOpen]);
 
   return (
     <div className="triage-step-layout">
@@ -66,7 +85,7 @@ export function WizardProblemStep({
       <button
         type="button"
         className={cn("triage-problem-toggle", showDetails && "triage-problem-toggle-open")}
-        onClick={() => setShowDetails((current) => !current)}
+        onClick={() => setManualDetailsOpen((current) => !current)}
         aria-expanded={showDetails}
         aria-controls="triage-problem-details"
       >
@@ -78,9 +97,14 @@ export function WizardProblemStep({
         </span>
       </button>
 
-      {showDetails && (
+      <div
+        ref={optionalWrapRef}
+        className={cn("triage-optional-reveal", showDetails && "triage-optional-reveal-open")}
+        aria-hidden={!showDetails}
+      >
         <div id="triage-problem-details" className="triage-textarea-wrap triage-textarea-wrap-optional">
           <textarea
+            ref={textareaRef}
             id="triage-problem-description"
             className="triage-problem-textarea"
             placeholder="Descrivici in poche parole cosa succede. Anche solo 1-2 righe vanno benissimo."
@@ -91,7 +115,7 @@ export function WizardProblemStep({
             Campo opzionale: se preferisci, puoi lasciarlo vuoto e ti aiutiamo noi in chiamata.
           </p>
         </div>
-      )}
+      </div>
     </div>
   );
 }

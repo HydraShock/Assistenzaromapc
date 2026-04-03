@@ -12,6 +12,8 @@ type CustomerValues = {
 type WizardDetailsStepProps = {
   values: CustomerValues;
   onChange: (field: keyof CustomerValues, value: string) => void;
+  onPhoneBlur: () => void;
+  phoneError: string | null;
   summary: {
     selectedDateLabel: string;
     selectedSlotLabel: string;
@@ -20,7 +22,7 @@ type WizardDetailsStepProps = {
   };
 };
 
-export function WizardDetailsStep({ values, onChange, summary }: WizardDetailsStepProps) {
+export function WizardDetailsStep({ values, onChange, onPhoneBlur, phoneError, summary }: WizardDetailsStepProps) {
   return (
     <div className="triage-step-layout">
       <div className="triage-details-grid">
@@ -49,13 +51,17 @@ export function WizardDetailsStep({ values, onChange, summary }: WizardDetailsSt
             id="triage-phone"
             name="phone"
             type="tel"
+            inputMode="tel"
             autoComplete="tel"
             value={values.phone}
             onChange={(event) => onChange("phone", event.target.value)}
+            onBlur={onPhoneBlur}
             className="triage-input"
             placeholder="Es. +39 342 123 4567"
+            aria-invalid={Boolean(phoneError)}
             required
           />
+          {phoneError ? <p className="triage-phone-error">{phoneError}</p> : null}
         </div>
 
         <div className="triage-field-wrap">
@@ -92,6 +98,9 @@ export function WizardDetailsStep({ values, onChange, summary }: WizardDetailsSt
       </div>
 
       <p className="triage-details-helper">Ti contatteremo solo per organizzare l&apos;intervento.</p>
+      <p className="triage-trust-note">
+        I dati vengono usati solo per questa richiesta. Tempo medio di ricontatto: entro 10 minuti in orario operativo.
+      </p>
 
       <WizardSummaryCard
         selectedDateLabel={summary.selectedDateLabel}
