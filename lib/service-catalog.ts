@@ -70,7 +70,7 @@ export const serviceCatalog: readonly ServiceCatalogItem[] = [
     slug: "configurazione-stampanti",
     name: "Configurazione stampanti e periferiche",
     h1Base: "Configurazione stampanti e periferiche a domicilio",
-    metaTitle: "Configurazione stampanti e periferiche",
+    metaTitle: "Assistenza stampanti",
     shortDescription:
       "Installazione e configurazione stampanti, scanner e periferiche con collegamento stabile a PC e rete locale.",
     includes: [

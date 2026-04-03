@@ -44,9 +44,9 @@ export async function generateMetadata({ params }: ServiceZonePageProps): Promis
 
   const pageUrl = getServiceZoneUrl(service.slug, area.slug);
   const title = `${service.metaTitle} ${area.zoneName}`;
-  const description = `${service.name} a domicilio in ${area.zoneName}: ${area.neighborhoods
+  const description = `${service.metaTitle} a domicilio in ${area.zoneName}: copertura ${area.neighborhoods
     .slice(0, 3)
-    .join(", ")}. Intervento rapido su appuntamento.`;
+    .join(", ")}, diagnosi chiara e intervento rapido su appuntamento.`;
 
   return {
     title,

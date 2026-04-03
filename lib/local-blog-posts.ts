@@ -190,7 +190,7 @@ const legacyLongTailSeeds: readonly LegacyLongTailSeed[] = [
     title: "Tecnico computer a domicilio a Termini: guida locale per interventi efficaci",
     metaTitle: "Tecnico computer a domicilio Termini",
     description:
-      "Assistenza tecnica in zona Termini su computer e notebook con interventi a domicilio e supporto rapido.",
+      "Assistenza tecnica in zona Termini su computer e notebook con interventi a domicilio, diagnosi strutturata e supporto rapido anche per urgenze reali.",
     excerpt:
       "Interventi a domicilio nell'area Termini con processo semplice e trasparente.",
     zoneLabel: "Termini",
@@ -222,7 +222,7 @@ const legacyLongTailSeeds: readonly LegacyLongTailSeed[] = [
     title: "Tecnico computer a domicilio a Trastevere: supporto rapido e affidabile",
     metaTitle: "Tecnico computer a domicilio Trastevere",
     description:
-      "Servizio di assistenza computer a domicilio in zona Trastevere con diagnosi veloce e soluzione sul posto.",
+      "Servizio di assistenza computer a domicilio in zona Trastevere con diagnosi veloce, soluzione sul posto e verifica finale della stabilita.",
     excerpt:
       "Guida locale per Trastevere dedicata a problemi frequenti su PC e rete domestica.",
     zoneLabel: "Trastevere",
@@ -238,7 +238,7 @@ const legacyLongTailSeeds: readonly LegacyLongTailSeed[] = [
     title: "Tecnico computer a domicilio EUR: interventi rapidi per casa e ufficio",
     metaTitle: "Tecnico computer a domicilio EUR",
     description:
-      "Assistenza tecnica a domicilio in zona EUR con supporto su riparazione PC, ottimizzazione e rete Wi-Fi.",
+      "Assistenza tecnica a domicilio in zona EUR con supporto su riparazione PC, ottimizzazione, rete Wi-Fi e configurazioni complete per casa e ufficio.",
     excerpt:
       "Pagina locale EUR per chi cerca un tecnico affidabile e operativo in tempi brevi.",
     zoneLabel: "EUR",
@@ -434,16 +434,17 @@ export const localBlogPosts: readonly LocalBlogPost[] = [
     ],
     relatedLinks: [
       { label: "Assistenza PC Roma Centro", href: "/zone/roma-centro" },
+      { label: "Guida backup a Roma", href: "/assistenza-a-domicilio/backup-a-roma-perche-e-fondamentale" },
       { label: "Assistenza Wi-Fi a Roma", href: "/servizi/assistenza-wifi-rete/roma-nord" },
       { label: "Prenota intervento", href: "/#prenota-assistenza" },
     ],
   },
   {
     slug: "i-5-problemi-piu-comuni-dei-pc-a-roma",
-    title: "I 5 problemi piu comuni dei PC a Roma",
-    metaTitle: "5 problemi comuni PC Roma",
+    title: "Checklist rapida: i 5 problemi piu comuni dei PC a Roma",
+    metaTitle: "Checklist problemi PC Roma",
     description:
-      "Versione rapida della guida: i 5 problemi informatici piu frequenti a Roma e la soluzione consigliata per ciascun caso.",
+      "Checklist rapida per riconoscere i 5 problemi informatici piu frequenti a Roma e decidere subito se fare un controllo base o chiamare un tecnico.",
     excerpt: "Checklist veloce per capire in 3 minuti il tipo di guasto e la priorita di intervento.",
     problemLabel: "Checklist rapida",
     zoneLabel: "Tutta Roma",
@@ -455,7 +456,7 @@ export const localBlogPosts: readonly LocalBlogPost[] = [
     heroImage: "/backgrounds/hero-bg-red.png",
     heroImageAlt: "Checklist problemi PC a Roma",
     intro:
-      "Se hai poco tempo, questa versione compatta ti aiuta a riconoscere il problema e capire la mossa giusta senza perdere altre ore.",
+      "Se hai poco tempo, questa versione compatta ti aiuta a riconoscere il problema in pochi minuti e scegliere la mossa giusta senza tentativi casuali.",
     zoneSlugs: ["roma-centro", "roma-nord", "roma-sud", "roma-est", "roma-ovest", "roma-litorale"],
     serviceSlugs: [
       "riparazione-pc-notebook",
@@ -494,7 +495,93 @@ export const localBlogPosts: readonly LocalBlogPost[] = [
     ],
     relatedLinks: [
       { label: "Guida completa ai 5 problemi", href: "/assistenza-a-domicilio/i-5-problemi-piu-comuni-dei-pc-a-roma-e-come-li-risolviamo-a-domicilio" },
+      { label: "Guida backup a Roma", href: "/assistenza-a-domicilio/backup-a-roma-perche-e-fondamentale" },
       { label: "Richiedi assistenza", href: "/#prenota-assistenza" },
+    ],
+  },
+  {
+    slug: "backup-a-roma-perche-e-fondamentale",
+    title: "Backup a Roma: perche e fondamentale per casa e ufficio",
+    metaTitle: "Backup a Roma: perche e fondamentale",
+    description:
+      "Guida pratica al backup a Roma per privati e piccoli uffici: cosa salvare, frequenza consigliata, regola 3-2-1 e controlli per evitare perdita dati.",
+    excerpt:
+      "Una guida concreta per impostare backup affidabili e non perdere file importanti al primo guasto o ransomware.",
+    problemLabel: "Backup e prevenzione",
+    zoneLabel: "Roma casa e ufficio",
+    category: "Assistenza a domicilio",
+    author: "Team Assistenza Roma PC",
+    publishedAt: "2026-04-03",
+    updatedAt: "2026-04-03",
+    readMinutes: 7,
+    heroImage: "/backgrounds/hero-main.png",
+    heroImageAlt: "Backup dati sicuro per PC e notebook a Roma",
+    intro:
+      "Molti utenti a Roma pensano al backup solo dopo un blocco del PC o una cancellazione accidentale. Questa guida spiega come organizzare una strategia semplice ma affidabile, valida per casa, studio professionale e smart working.",
+    zoneSlugs: ["roma-centro", "roma-nord", "roma-sud", "roma-est", "roma-ovest", "roma-litorale"],
+    serviceSlugs: ["recupero-dati-backup", "riparazione-pc-notebook", "rimozione-virus-malware"],
+    sections: [
+      {
+        title: "Perche il backup e indispensabile",
+        paragraphs: [
+          "Guasti disco, aggiornamenti interrotti, furto del portatile o malware possono rendere i dati irrecuperabili in pochi minuti. Avere un backup aggiornato evita blocchi operativi e riduce il danno economico.",
+        ],
+        bullets: [
+          "Protegge documenti di lavoro, foto e archivi fiscali.",
+          "Riduce tempi di fermo dopo un problema tecnico.",
+          "Permette ripristino rapido senza ricostruire tutto da zero.",
+        ],
+      },
+      {
+        title: "Regola 3-2-1 spiegata in modo pratico",
+        paragraphs: [
+          "La regola 3-2-1 resta il metodo piu solido: 3 copie dei dati, su 2 supporti diversi, con almeno 1 copia esterna. E semplice da applicare anche senza infrastrutture complesse.",
+        ],
+        bullets: [
+          "Copia principale sul PC in uso quotidiano.",
+          "Seconda copia su disco esterno dedicato.",
+          "Terza copia su cloud affidabile con controllo accessi.",
+        ],
+      },
+      {
+        title: "Ogni quanto fare backup",
+        paragraphs: [
+          "La frequenza dipende da quanto cambiano i file. In generale conviene automatizzare backup giornaliero dei dati critici e backup completo settimanale.",
+        ],
+        bullets: [
+          "Backup giornaliero: documenti, email, file operativi.",
+          "Backup settimanale: immagine sistema e cartelle complete.",
+          "Verifica mensile del ripristino per evitare backup inutilizzabili.",
+        ],
+      },
+      {
+        title: "Errori comuni da evitare",
+        paragraphs: [
+          "Il backup non serve se non viene controllato. Gli errori piu comuni sono dischi sempre collegati, nessun test di ripristino e assenza di cifratura dei dati sensibili.",
+        ],
+        bullets: [
+          "Tenere il disco backup sempre connesso al PC.",
+          "Non testare mai l'apertura dei file salvati.",
+          "Usare un solo supporto senza copia esterna.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Meglio backup su cloud o su disco esterno?",
+        answer:
+          "La soluzione migliore e usarli entrambi: disco locale per ripristino veloce e cloud per protezione da guasti fisici o furto.",
+      },
+      {
+        question: "Posso impostare un backup automatico senza competenze tecniche?",
+        answer:
+          "Si, con una configurazione iniziale corretta puoi automatizzare il processo e ricevere controlli periodici senza interventi manuali complessi.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Servizio recupero dati e backup", href: "/servizi/recupero-dati-backup/roma-centro" },
+      { label: "Guida completa ai 5 problemi PC", href: "/assistenza-a-domicilio/i-5-problemi-piu-comuni-dei-pc-a-roma-e-come-li-risolviamo-a-domicilio" },
+      { label: "Prenota assistenza", href: "/#prenota-assistenza" },
     ],
   },
   {

@@ -8,7 +8,7 @@ import { LuxuryTopNavbar } from "@/components/landing/LuxuryTopNavbar";
 import { localBlogPosts } from "@/lib/local-blog-posts";
 import { siteConfig } from "@/lib/seo";
 
-const pageTitle = "Blog assistenza a domicilio Roma: guide pratiche e casi reali";
+const pageTitle = "Guide assistenza PC a domicilio Roma";
 const pageDescription =
   "Articoli pratici su assistenza informatica a domicilio a Roma: problemi comuni, guide zona per zona e consigli operativi.";
 
