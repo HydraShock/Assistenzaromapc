@@ -1,18 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  poweredByHeader: false,
   images: {
     qualities: [50, 65, 75, 85],
     formats: ["image/avif", "image/webp"],
   },
   async redirects() {
     return [
-      {
-        source: "/",
-        has: [{ type: "query", key: "page_id" }],
-        destination: "/assistenza-a-domicilio",
-        permanent: true,
-      },
       {
         source: "/category/assistenza-a-domicilio/:path*",
         destination: "/assistenza-a-domicilio",
@@ -72,6 +67,31 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains; preload",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "DENY",
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), payment=()",
+          },
+        ],
+      },
       {
         source: "/backgrounds/:path*",
         headers: [
