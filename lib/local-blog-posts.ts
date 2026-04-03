@@ -37,6 +37,281 @@ export type LocalBlogPost = {
   relatedLinks: readonly { label: string; href: string }[];
 };
 
+type LegacyLongTailSeed = {
+  slug: string;
+  title: string;
+  metaTitle: string;
+  description: string;
+  excerpt: string;
+  zoneLabel: string;
+  zoneSlugs: readonly string[];
+  serviceSlugs: readonly string[];
+  serviceName: string;
+  zonePath: string;
+  servicePath: string;
+  heroImage: string;
+};
+
+const allZoneSlugs = [
+  "roma-centro",
+  "roma-nord",
+  "roma-nord-est",
+  "roma-est",
+  "roma-sud-est",
+  "roma-sud",
+  "roma-ovest",
+  "roma-litorale",
+] as const;
+
+const allServiceSlugs = [
+  "riparazione-pc-notebook",
+  "pc-lento-ottimizzazione",
+  "rimozione-virus-malware",
+  "assistenza-wifi-rete",
+  "configurazione-stampanti",
+  "recupero-dati-backup",
+] as const;
+
+const legacyLongTailSeeds: readonly LegacyLongTailSeed[] = [
+  {
+    slug: "assistenza-a-domicilio-a-roma",
+    title: "Assistenza informatica a domicilio a Roma: tempi, costi e cosa include",
+    metaTitle: "Assistenza informatica a domicilio Roma",
+    description:
+      "Panoramica completa del servizio di assistenza informatica a domicilio a Roma: tempi di intervento, problemi gestiti e supporto operativo.",
+    excerpt:
+      "Guida introduttiva al servizio completo di assistenza a domicilio in tutta Roma.",
+    zoneLabel: "Roma",
+    zoneSlugs: allZoneSlugs,
+    serviceSlugs: allServiceSlugs,
+    serviceName: "assistenza informatica a domicilio",
+    zonePath: "/zone/roma-centro",
+    servicePath: "/assistenza-a-domicilio",
+    heroImage: "/backgrounds/cagare.png",
+  },
+  {
+    slug: "tecnico-computer-a-domicilio-a-garbatella",
+    title: "Tecnico computer a domicilio a Garbatella: guida locale e supporto rapido",
+    metaTitle: "Tecnico computer a domicilio Garbatella",
+    description:
+      "Assistenza PC a domicilio in zona Garbatella con interventi rapidi su computer, rete Wi-Fi, stampanti e problemi software.",
+    excerpt:
+      "Pagina locale dedicata a Garbatella per richieste tecniche a domicilio senza attese lunghe.",
+    zoneLabel: "Garbatella",
+    zoneSlugs: ["roma-sud"],
+    serviceSlugs: ["riparazione-pc-notebook", "assistenza-wifi-rete", "configurazione-stampanti"],
+    serviceName: "assistenza tecnica PC",
+    zonePath: "/zone/roma-sud",
+    servicePath: "/servizi/riparazione-pc-notebook/roma-sud",
+    heroImage: "/backgrounds/chat-zones-v2.png",
+  },
+  {
+    slug: "tecnico-computer-a-domicilio-a-ostiense",
+    title: "Tecnico computer a domicilio a Ostiense: assistenza per casa e lavoro",
+    metaTitle: "Tecnico computer a domicilio Ostiense",
+    description:
+      "Tecnico informatico a domicilio in zona Ostiense per riparazioni PC, ottimizzazione e supporto rete domestica.",
+    excerpt:
+      "Interventi pratici in zona Ostiense con diagnosi chiara e soluzione sul posto.",
+    zoneLabel: "Ostiense",
+    zoneSlugs: ["roma-sud"],
+    serviceSlugs: ["riparazione-pc-notebook", "pc-lento-ottimizzazione", "assistenza-wifi-rete"],
+    serviceName: "assistenza tecnica PC",
+    zonePath: "/zone/roma-sud",
+    servicePath: "/servizi/assistenza-wifi-rete/roma-sud",
+    heroImage: "/backgrounds/hero-main.png",
+  },
+  {
+    slug: "tecnico-computer-a-domicilio-a-parioli",
+    title: "Tecnico computer a domicilio a Parioli: problemi frequenti e soluzioni rapide",
+    metaTitle: "Tecnico computer a domicilio Parioli",
+    description:
+      "Supporto informatico a domicilio in zona Parioli su notebook, rete Wi-Fi, stampanti e rallentamenti del sistema.",
+    excerpt:
+      "Guida locale per Parioli con checklist semplice e contatto rapido.",
+    zoneLabel: "Parioli",
+    zoneSlugs: ["roma-nord"],
+    serviceSlugs: ["riparazione-pc-notebook", "assistenza-wifi-rete", "pc-lento-ottimizzazione"],
+    serviceName: "assistenza tecnica PC",
+    zonePath: "/zone/roma-nord",
+    servicePath: "/servizi/riparazione-pc-notebook/roma-nord",
+    heroImage: "/backgrounds/sfondotest2.png",
+  },
+  {
+    slug: "tecnico-computer-a-domicilio-a-piazza-bologna-interventi-rapidi-e-affidabili",
+    title: "Tecnico computer a domicilio a Piazza Bologna: interventi rapidi e affidabili",
+    metaTitle: "Tecnico computer a domicilio Piazza Bologna",
+    description:
+      "Assistenza tecnica in zona Piazza Bologna con interventi a domicilio su problemi PC, lentezza, rete e periferiche.",
+    excerpt:
+      "Pagina locale dedicata a Piazza Bologna per supporto tecnico rapido.",
+    zoneLabel: "Piazza Bologna",
+    zoneSlugs: ["roma-nord"],
+    serviceSlugs: ["riparazione-pc-notebook", "pc-lento-ottimizzazione", "configurazione-stampanti"],
+    serviceName: "assistenza tecnica PC",
+    zonePath: "/zone/roma-nord",
+    servicePath: "/servizi/pc-lento-ottimizzazione/roma-nord",
+    heroImage: "/backgrounds/sfondotest.png",
+  },
+  {
+    slug: "tecnico-computer-a-domicilio-a-prati",
+    title: "Tecnico computer a domicilio a Prati: tempi di intervento e casi reali",
+    metaTitle: "Tecnico computer a domicilio Prati",
+    description:
+      "Assistenza a domicilio in zona Prati per computer lenti, mancato avvio, problemi rete e configurazioni complete.",
+    excerpt:
+      "Guida locale pensata per chi cerca un tecnico computer in zona Prati.",
+    zoneLabel: "Prati",
+    zoneSlugs: ["roma-centro"],
+    serviceSlugs: ["riparazione-pc-notebook", "pc-lento-ottimizzazione", "assistenza-wifi-rete"],
+    serviceName: "assistenza tecnica PC",
+    zonePath: "/zone/roma-centro",
+    servicePath: "/servizi/riparazione-pc-notebook/roma-centro",
+    heroImage: "/backgrounds/chat-zones-v2.png",
+  },
+  {
+    slug: "tecnico-computer-a-domicilio-a-san-giovanni",
+    title: "Tecnico computer a domicilio a San Giovanni: assistenza pratica e veloce",
+    metaTitle: "Tecnico computer a domicilio San Giovanni",
+    description:
+      "Supporto informatico a domicilio in zona San Giovanni con diagnosi rapida e soluzione operativa per casa e lavoro.",
+    excerpt:
+      "Pagina locale per San Giovanni con focus su urgenze reali e interventi in tempi rapidi.",
+    zoneLabel: "San Giovanni",
+    zoneSlugs: ["roma-sud-est"],
+    serviceSlugs: ["riparazione-pc-notebook", "rimozione-virus-malware", "assistenza-wifi-rete"],
+    serviceName: "assistenza tecnica PC",
+    zonePath: "/zone/roma-sud-est",
+    servicePath: "/servizi/rimozione-virus-malware/roma-sud-est",
+    heroImage: "/backgrounds/hero-main.png",
+  },
+  {
+    slug: "tecnico-computer-a-domicilio-a-termini",
+    title: "Tecnico computer a domicilio a Termini: guida locale per interventi efficaci",
+    metaTitle: "Tecnico computer a domicilio Termini",
+    description:
+      "Assistenza tecnica in zona Termini su computer e notebook con interventi a domicilio e supporto rapido.",
+    excerpt:
+      "Interventi a domicilio nell'area Termini con processo semplice e trasparente.",
+    zoneLabel: "Termini",
+    zoneSlugs: ["roma-centro"],
+    serviceSlugs: ["riparazione-pc-notebook", "pc-lento-ottimizzazione", "recupero-dati-backup"],
+    serviceName: "assistenza tecnica PC",
+    zonePath: "/zone/roma-centro",
+    servicePath: "/servizi/recupero-dati-backup/roma-centro",
+    heroImage: "/backgrounds/sfondotest2.png",
+  },
+  {
+    slug: "tecnico-computer-a-domicilio-a-tiburtina",
+    title: "Tecnico computer a domicilio a Tiburtina: assistenza completa in zona",
+    metaTitle: "Tecnico computer a domicilio Tiburtina",
+    description:
+      "Assistenza informatica a domicilio in zona Tiburtina per notebook, rete Wi-Fi, malware e configurazioni tecniche.",
+    excerpt:
+      "Pagina locale Tiburtina con controlli utili prima di richiedere l'intervento.",
+    zoneLabel: "Tiburtina",
+    zoneSlugs: ["roma-est"],
+    serviceSlugs: ["riparazione-pc-notebook", "assistenza-wifi-rete", "rimozione-virus-malware"],
+    serviceName: "assistenza tecnica PC",
+    zonePath: "/zone/roma-est",
+    servicePath: "/servizi/rimozione-virus-malware/roma-est",
+    heroImage: "/backgrounds/sfondotest.png",
+  },
+  {
+    slug: "tecnico-computer-a-domicilio-a-trastevere",
+    title: "Tecnico computer a domicilio a Trastevere: supporto rapido e affidabile",
+    metaTitle: "Tecnico computer a domicilio Trastevere",
+    description:
+      "Servizio di assistenza computer a domicilio in zona Trastevere con diagnosi veloce e soluzione sul posto.",
+    excerpt:
+      "Guida locale per Trastevere dedicata a problemi frequenti su PC e rete domestica.",
+    zoneLabel: "Trastevere",
+    zoneSlugs: ["roma-centro"],
+    serviceSlugs: ["riparazione-pc-notebook", "pc-lento-ottimizzazione", "assistenza-wifi-rete"],
+    serviceName: "assistenza tecnica PC",
+    zonePath: "/zone/roma-centro",
+    servicePath: "/servizi/assistenza-wifi-rete/roma-centro",
+    heroImage: "/backgrounds/chat-zones-v2.png",
+  },
+  {
+    slug: "tecnico-computer-a-domicilio-eur",
+    title: "Tecnico computer a domicilio EUR: interventi rapidi per casa e ufficio",
+    metaTitle: "Tecnico computer a domicilio EUR",
+    description:
+      "Assistenza tecnica a domicilio in zona EUR con supporto su riparazione PC, ottimizzazione e rete Wi-Fi.",
+    excerpt:
+      "Pagina locale EUR per chi cerca un tecnico affidabile e operativo in tempi brevi.",
+    zoneLabel: "EUR",
+    zoneSlugs: ["roma-sud"],
+    serviceSlugs: ["riparazione-pc-notebook", "pc-lento-ottimizzazione", "assistenza-wifi-rete"],
+    serviceName: "assistenza tecnica PC",
+    zonePath: "/zone/roma-sud",
+    servicePath: "/servizi/riparazione-pc-notebook/roma-sud",
+    heroImage: "/backgrounds/hero-main.png",
+  },
+] as const;
+
+const legacyLongTailPosts: readonly LocalBlogPost[] = legacyLongTailSeeds.map((seed) => ({
+  slug: seed.slug,
+  title: seed.title,
+  metaTitle: seed.metaTitle,
+  description: seed.description,
+  excerpt: seed.excerpt,
+  problemLabel: "Tecnico in zona",
+  zoneLabel: seed.zoneLabel,
+  category: "Assistenza a domicilio",
+  author: "Team Assistenza Roma PC",
+  publishedAt: "2026-04-03",
+  updatedAt: "2026-04-03",
+  readMinutes: 6,
+  heroImage: seed.heroImage,
+  heroImageAlt: `Tecnico computer a domicilio in zona ${seed.zoneLabel}`,
+  intro: `In zona ${seed.zoneLabel} riceviamo richieste frequenti su PC lenti, rete instabile e periferiche bloccate. Questa pagina riassume come interveniamo a domicilio con un processo chiaro e tempi rapidi.`,
+  zoneSlugs: seed.zoneSlugs,
+  serviceSlugs: seed.serviceSlugs,
+  sections: [
+    {
+      title: `Problemi frequenti in zona ${seed.zoneLabel}`,
+      paragraphs: [
+        `Nell'area ${seed.zoneLabel} i casi piu comuni riguardano rallentamenti, problemi di avvio, rete Wi-Fi instabile e configurazioni non ottimali.`,
+      ],
+      bullets: [
+        `Diagnosi iniziale rapida sul problema principale.`,
+        `Intervento mirato su ${seed.serviceName}.`,
+        "Verifica finale insieme al cliente prima di chiudere.",
+      ],
+    },
+    {
+      title: "Come avviene l'intervento a domicilio",
+      paragraphs: [
+        "Partiamo da una checklist tecnica semplice, risolviamo la causa principale e lasciamo indicazioni pratiche per evitare che il problema torni.",
+      ],
+      bullets: [
+        "Controllo stato sistema e stabilita generale.",
+        "Test operativo su dispositivi e connessione.",
+        "Suggerimenti concreti su manutenzione e prevenzione.",
+      ],
+    },
+  ],
+  faq: [
+    {
+      question: `Intervenite rapidamente anche in zona ${seed.zoneLabel}?`,
+      answer:
+        "Quando disponibile, confermiamo il primo slot utile in giornata oppure il prima possibile in base alla fascia oraria.",
+    },
+    {
+      question: "Posso richiedere assistenza su piu dispositivi nello stesso appuntamento?",
+      answer:
+        "Si, durante la stessa uscita possiamo gestire piu PC, notebook e periferiche per ottimizzare tempi e organizzazione.",
+    },
+  ],
+  relatedLinks: [
+    { label: `Copertura zona ${seed.zoneLabel}`, href: seed.zonePath },
+    { label: "Servizio consigliato", href: seed.servicePath },
+    { label: "Prenota assistenza", href: "/#prenota-assistenza" },
+  ],
+}));
+
 export const localBlogPosts: readonly LocalBlogPost[] = [
   {
     slug: "i-5-problemi-piu-comuni-dei-pc-a-roma-e-come-li-risolviamo-a-domicilio",
@@ -378,7 +653,8 @@ export const localBlogPosts: readonly LocalBlogPost[] = [
       { label: "Richiedi intervento", href: "/#prenota-assistenza" },
     ],
   },
-] as const;
+  ...legacyLongTailPosts,
+];
 
 export function getLocalBlogPostBySlug(slug: string): LocalBlogPost | undefined {
   return localBlogPosts.find((post) => post.slug === slug);

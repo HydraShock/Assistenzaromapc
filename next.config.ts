@@ -14,61 +14,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/assistenza-a-domicilio/assistenza-a-domicilio-a-roma",
-        destination: "/assistenza-a-domicilio",
-        permanent: true,
-      },
-      {
-        source: "/assistenza-a-domicilio/tecnico-computer-a-domicilio-a-garbatella",
-        destination: "/zone/roma-sud",
-        permanent: true,
-      },
-      {
-        source: "/assistenza-a-domicilio/tecnico-computer-a-domicilio-a-ostiense",
-        destination: "/zone/roma-sud",
-        permanent: true,
-      },
-      {
-        source: "/assistenza-a-domicilio/tecnico-computer-a-domicilio-a-parioli",
-        destination: "/zone/roma-nord",
-        permanent: true,
-      },
-      {
-        source: "/assistenza-a-domicilio/tecnico-computer-a-domicilio-a-piazza-bologna-interventi-rapidi-e-affidabili",
-        destination: "/zone/roma-nord",
-        permanent: true,
-      },
-      {
-        source: "/assistenza-a-domicilio/tecnico-computer-a-domicilio-a-prati",
-        destination: "/zone/roma-centro",
-        permanent: true,
-      },
-      {
-        source: "/assistenza-a-domicilio/tecnico-computer-a-domicilio-a-san-giovanni",
-        destination: "/zone/roma-sud-est",
-        permanent: true,
-      },
-      {
-        source: "/assistenza-a-domicilio/tecnico-computer-a-domicilio-a-termini",
-        destination: "/zone/roma-centro",
-        permanent: true,
-      },
-      {
-        source: "/assistenza-a-domicilio/tecnico-computer-a-domicilio-a-tiburtina",
-        destination: "/zone/roma-est",
-        permanent: true,
-      },
-      {
-        source: "/assistenza-a-domicilio/tecnico-computer-a-domicilio-a-trastevere",
-        destination: "/zone/roma-centro",
-        permanent: true,
-      },
-      {
-        source: "/assistenza-a-domicilio/tecnico-computer-a-domicilio-eur",
-        destination: "/zone/roma-sud",
-        permanent: true,
-      },
-      {
         source: "/prodotto/:slug*",
         destination: "/assistenza-a-domicilio",
         permanent: true,
