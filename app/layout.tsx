@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { Cinzel, Inter, Space_Grotesk, Geist } from "next/font/google";
+import { Cinzel, Inter, Space_Grotesk } from "next/font/google";
 
 import "./globals.css";
 import { siteConfig } from "@/lib/seo";
 import { cn } from "@/lib/utils";
-
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 const inter = Inter({
   variable: "--font-inter",
@@ -102,7 +100,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="it" className={cn("font-sans", geist.variable)}>
+    <html lang="it" className={cn("font-sans")}>
       <body className={`${inter.variable} ${spaceGrotesk.variable} ${cinzel.variable} bg-[#050505] text-white antialiased`}>
         {children}
       </body>

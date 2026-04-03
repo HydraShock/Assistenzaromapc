@@ -20,22 +20,30 @@ export function LandingPage() {
         <PrimaryHeroSection />
         {/* To switch hero: replace <PrimaryHeroSection /> with <PrimaryHeroSectionWow /> */}
       </div>
-      <ServicesGridSection />
-      <div id="zone-di-roma">
+      <div className="cv-auto">
+        <ServicesGridSection />
+      </div>
+      <div id="zone-di-roma" className="cv-auto">
         <CoverageZonesSection />
       </div>
-      <div id="contatti">
+      <div id="contatti" className="cv-auto">
         <AppointmentContactSection />
       </div>
-      <CrimsonLampCardsSection variant="super-red" />
-      <div id="recensioni">
+      <div className="cv-auto">
+        <CrimsonLampCardsSection variant="super-red" />
+      </div>
+      <div id="recensioni" className="cv-auto">
         <ClientReviewsSection />
       </div>
-      <UltraRapidRomeSection />
-      <div id="faq">
+      <div className="cv-auto">
+        <UltraRapidRomeSection />
+      </div>
+      <div id="faq" className="cv-auto">
         <PremiumFaqSection idPrefix="premium-faq-ciccio" />
       </div>
-      <LuxuryFooterSectionSaved />
+      <div className="cv-auto">
+        <LuxuryFooterSectionSaved />
+      </div>
     </main>
   );
 }

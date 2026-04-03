@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState, type FormEvent } from "react";
 import {
   CircleHelp,
@@ -170,6 +171,17 @@ export function AppointmentContactSection() {
 
   return (
     <section id="prenota-assistenza" className="triage-section relative isolate overflow-hidden py-16 md:py-20">
+      <Image
+        src="/backgrounds/puzza.png"
+        alt=""
+        fill
+        quality={95}
+        sizes="100vw"
+        loading="lazy"
+        className="pointer-events-none absolute inset-0 z-0 object-cover object-center"
+        aria-hidden="true"
+      />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.34))]" />
       <div className="triage-container relative z-10 mx-auto w-full max-w-[1180px] px-6 md:px-10 lg:px-12">
         <header className="triage-top-intro">
           <p className="triage-top-badge">Assistenza Rapida - Roma</p>

@@ -2,6 +2,7 @@ import { siteConfig } from "@/lib/seo";
 
 export type ServiceAreaPage = {
   slug: string;
+  zoneName: string;
   title: string;
   h1: string;
   description: string;
@@ -14,6 +15,7 @@ export type ServiceAreaPage = {
 export const serviceAreaPages: readonly ServiceAreaPage[] = [
   {
     slug: "roma-centro",
+    zoneName: "Roma Centro",
     title: "Assistenza PC Roma Centro",
     h1: "Assistenza PC a domicilio Roma Centro",
     description:
@@ -41,6 +43,7 @@ export const serviceAreaPages: readonly ServiceAreaPage[] = [
   },
   {
     slug: "roma-nord",
+    zoneName: "Roma Nord",
     title: "Assistenza PC Roma Nord",
     h1: "Assistenza computer a domicilio Roma Nord",
     description:
@@ -68,6 +71,7 @@ export const serviceAreaPages: readonly ServiceAreaPage[] = [
   },
   {
     slug: "roma-nord-est",
+    zoneName: "Roma Nord Est",
     title: "Assistenza PC Roma Nord Est",
     h1: "Assistenza PC a domicilio Roma Nord Est",
     description:
@@ -95,6 +99,7 @@ export const serviceAreaPages: readonly ServiceAreaPage[] = [
   },
   {
     slug: "roma-est",
+    zoneName: "Roma Est",
     title: "Assistenza PC Roma Est",
     h1: "Tecnico computer a domicilio Roma Est",
     description:
@@ -122,10 +127,11 @@ export const serviceAreaPages: readonly ServiceAreaPage[] = [
   },
   {
     slug: "roma-sud-est",
+    zoneName: "Roma Sud Est",
     title: "Assistenza PC Roma Sud Est",
     h1: "Assistenza informatica Roma Sud Est a domicilio",
     description:
-      "Tecnico PC in zona Roma Sud Est: Appio, Tuscolano, Cinecitta, Re di Roma, Colli Albani e Don Bosco.",
+      "Tecnico PC a domicilio in Roma Sud Est per riparazioni e supporto rapido: Appio, Tuscolano, Cinecitta, Re di Roma, Colli Albani e Don Bosco.",
     intro:
       "Servizio a domicilio su appuntamento per riparazioni, configurazioni e supporto quotidiano in tutta l'area sud est di Roma.",
     neighborhoods: ["Appio", "Tuscolano", "Cinecitta", "Re di Roma", "Colli Albani", "Don Bosco"],
@@ -149,10 +155,11 @@ export const serviceAreaPages: readonly ServiceAreaPage[] = [
   },
   {
     slug: "roma-sud",
+    zoneName: "Roma Sud",
     title: "Assistenza PC Roma Sud",
     h1: "Assistenza PC e notebook Roma Sud",
     description:
-      "Interventi tecnici a domicilio in Roma Sud: Eur, Garbatella, Ostiense, Laurentina, San Paolo e Tor Marancia.",
+      "Interventi tecnici a domicilio in Roma Sud con assistenza rapida su PC e notebook: Eur, Garbatella, Ostiense, Laurentina, San Paolo e Tor Marancia.",
     intro:
       "Supporto professionale in zona sud per problemi urgenti e manutenzione ordinaria su computer, notebook e rete domestica.",
     neighborhoods: ["Eur", "Garbatella", "Ostiense", "Laurentina", "San Paolo", "Tor Marancia"],
@@ -176,10 +183,11 @@ export const serviceAreaPages: readonly ServiceAreaPage[] = [
   },
   {
     slug: "roma-ovest",
+    zoneName: "Roma Ovest",
     title: "Assistenza PC Roma Ovest",
     h1: "Tecnico PC a domicilio Roma Ovest",
     description:
-      "Assistenza computer in Roma Ovest: Monteverde, Portuense, Magliana, Aurelio, Boccea e Balduina.",
+      "Assistenza computer a domicilio in Roma Ovest con interventi rapidi: Monteverde, Portuense, Magliana, Aurelio, Boccea e Balduina.",
     intro:
       "Interventi in tutta Roma Ovest con approccio pratico e supporto completo per problemi software, hardware e connettivita.",
     neighborhoods: ["Monteverde", "Portuense", "Magliana", "Aurelio", "Boccea", "Balduina"],
@@ -203,10 +211,11 @@ export const serviceAreaPages: readonly ServiceAreaPage[] = [
   },
   {
     slug: "roma-litorale",
+    zoneName: "Roma Litorale",
     title: "Assistenza PC Ostia e Litorale Roma",
     h1: "Assistenza PC a domicilio Ostia e Litorale",
     description:
-      "Tecnico informatico a domicilio su Ostia, Acilia, Infernetto, Casal Palocco, Axa e Dragona.",
+      "Tecnico informatico a domicilio su Ostia e Litorale di Roma con copertura estesa: Acilia, Infernetto, Casal Palocco, Axa e Dragona.",
     intro:
       "Servizio a domicilio dedicato alle zone del litorale romano con supporto tecnico completo su computer, rete e periferiche.",
     neighborhoods: ["Ostia", "Acilia", "Infernetto", "Casal Palocco", "Axa", "Dragona"],

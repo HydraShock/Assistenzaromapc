@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { Star } from "lucide-react";
@@ -134,15 +134,18 @@ function ReviewCard({ review }: { review: Review }) {
 
 export function ClientReviewsSection() {
   return (
-    <section
-      className="relative overflow-hidden bg-white py-16 md:py-20"
-      style={{
-        backgroundImage: "url('/backgrounds/sfondotest.webp')",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center center",
-        backgroundSize: "cover",
-      }}
-    >
+    <section className="relative overflow-hidden bg-white py-16 md:py-20">
+      <Image
+        src="/backgrounds/sfondotest.png"
+        alt=""
+        fill
+        quality={95}
+        sizes="100vw"
+        loading="lazy"
+        className="pointer-events-none absolute inset-0 z-0 object-cover object-center"
+        aria-hidden="true"
+      />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.32))]" />
       <div className="relative z-10 mx-auto w-full max-w-[1240px] px-6 md:px-10 lg:px-12">
         <header className="mb-10 text-center md:mb-12">
           <h2
@@ -195,4 +198,5 @@ export function ClientReviewsSection() {
     </section>
   );
 }
+
 

@@ -80,16 +80,18 @@ export function PremiumFaqSection({
   };
 
   return (
-    <section
-      aria-labelledby={`${idPrefix}-heading`}
-      className="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28"
-      style={{
-        backgroundImage: "url('/backgrounds/sfondotest2.webp')",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center center",
-        backgroundSize: "cover",
-      }}
-    >
+    <section aria-labelledby={`${idPrefix}-heading`} className="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28">
+      <Image
+        src="/backgrounds/sfondotest2.png"
+        alt=""
+        fill
+        quality={95}
+        sizes="100vw"
+        loading="lazy"
+        className="pointer-events-none absolute inset-0 z-0 object-cover object-center"
+        aria-hidden="true"
+      />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0.38))]" />
       <div className="relative mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
         <div className="relative grid items-start gap-6 lg:grid-cols-[0.84fr_1.16fr] lg:items-center lg:gap-8">
           <span

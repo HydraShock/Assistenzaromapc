@@ -257,10 +257,6 @@ body {
 
 .services-luxury-section {
   background-color: #ffffff;
-  background-image: url("/backgrounds/sfondotest.webp");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
 }
 
 .services-luxury-section::before {
@@ -343,10 +339,11 @@ body {
 
 .triage-section {
   background-color: #ffffff;
-  background-image: url("/backgrounds/puzza.webp");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+}
+
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 920px;
 }
 
 .triage-top-intro {

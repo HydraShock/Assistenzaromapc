@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -18,36 +18,37 @@ type MenuItem = {
 const menuItems: MenuItem[] = [
   { id: "servizi", label: "Servizi", href: "#servizi", dropdown: "servizi" },
   { id: "zone", label: "Zone di Roma", href: "#zone-di-roma", dropdown: "zone" },
+  { id: "guide", label: "Guide", href: "/assistenza-a-domicilio" },
   { id: "faq", label: "FAQ", href: "#faq" },
   { id: "recensioni", label: "Recensioni", href: "#recensioni" },
   { id: "contatti", label: "Contatti", href: "#contatti" },
 ];
 
 const serviziLinks = [
-  { label: "Assistenza PC a domicilio", href: "#servizi" },
-  { label: "Riparazione notebook", href: "#servizi" },
-  { label: "Problemi Wi-Fi e rete", href: "#servizi" },
-  { label: "Stampanti e periferiche", href: "#servizi" },
+  { label: "Assistenza PC a domicilio", href: "/servizi/riparazione-pc-notebook/roma-centro" },
+  { label: "Riparazione notebook", href: "/servizi/riparazione-pc-notebook/roma-nord" },
+  { label: "Problemi Wi-Fi e rete", href: "/servizi/assistenza-wifi-rete/roma-est" },
+  { label: "Stampanti e periferiche", href: "/servizi/configurazione-stampanti/roma-sud" },
 ] as const;
 
 const zoneLinks = [
-  { label: "Roma Nord", href: "#zone-di-roma" },
-  { label: "Roma Sud", href: "#zone-di-roma" },
-  { label: "Roma Est", href: "#zone-di-roma" },
-  { label: "Roma Ovest", href: "#zone-di-roma" },
-  { label: "Roma Centro", href: "#zone-di-roma" },
-  { label: "Roma Litorale", href: "#zone-di-roma" },
+  { label: "Roma Nord", href: "/zone/roma-nord" },
+  { label: "Roma Sud", href: "/zone/roma-sud" },
+  { label: "Roma Est", href: "/zone/roma-est" },
+  { label: "Roma Ovest", href: "/zone/roma-ovest" },
+  { label: "Roma Centro", href: "/zone/roma-centro" },
+  { label: "Roma Litorale", href: "/zone/roma-litorale" },
 ] as const;
 
 const quartieriLinks = [
-  { label: "Prati", href: "#zone-di-roma" },
-  { label: "San Giovanni", href: "#zone-di-roma" },
-  { label: "Eur", href: "#zone-di-roma" },
-  { label: "Monteverde", href: "#zone-di-roma" },
-  { label: "Parioli", href: "#zone-di-roma" },
-  { label: "Nomentano", href: "#zone-di-roma" },
-  { label: "Centocelle", href: "#zone-di-roma" },
-  { label: "Ostia", href: "#zone-di-roma" },
+  { label: "Prati", href: "/zone/roma-centro" },
+  { label: "San Giovanni", href: "/zone/roma-centro" },
+  { label: "Eur", href: "/zone/roma-sud" },
+  { label: "Monteverde", href: "/zone/roma-ovest" },
+  { label: "Parioli", href: "/zone/roma-nord" },
+  { label: "Nomentano", href: "/zone/roma-nord" },
+  { label: "Centocelle", href: "/zone/roma-est" },
+  { label: "Ostia", href: "/zone/roma-litorale" },
 ] as const;
 
 export function LuxuryTopNavbar() {
@@ -56,6 +57,32 @@ export function LuxuryTopNavbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<DropdownKey | null>(null);
   const [activeItem, setActiveItem] = useState<string>("servizi");
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const clearCloseTimer = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  };
+
+  const openDropdownMenu = (key: DropdownKey | null) => {
+    clearCloseTimer();
+    setOpenDropdown(key);
+  };
+
+  const scheduleDropdownClose = () => {
+    clearCloseTimer();
+    closeTimerRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 140);
+  };
+
+  useEffect(() => {
+    return () => {
+      clearCloseTimer();
+    };
+  }, []);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const isCompact = latest > 24;
@@ -68,6 +95,7 @@ export function LuxuryTopNavbar() {
   });
 
   const closeMenus = () => {
+    clearCloseTimer();
     setOpenDropdown(null);
     setMobileOpen(false);
   };
@@ -78,7 +106,8 @@ export function LuxuryTopNavbar() {
         initial={false}
         animate={{ scale: compact ? 0.985 : 1, y: compact ? -2 : 0 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        onMouseLeave={() => setOpenDropdown(null)}
+        onMouseEnter={clearCloseTimer}
+        onMouseLeave={scheduleDropdownClose}
         className={cn(
           "pointer-events-auto relative w-full max-w-[1220px] overflow-visible rounded-[30px] border backdrop-blur-xl transition-[box-shadow,background-color,border-color] duration-300",
           compact
@@ -123,10 +152,11 @@ export function LuxuryTopNavbar() {
                   {item.dropdown ? (
                     <button
                       type="button"
-                      onMouseEnter={() => setOpenDropdown(item.dropdown ?? null)}
-                      onFocus={() => setOpenDropdown(item.dropdown ?? null)}
+                      onMouseEnter={() => openDropdownMenu(item.dropdown ?? null)}
+                      onFocus={() => openDropdownMenu(item.dropdown ?? null)}
                       onClick={() => {
                         setActiveItem(item.id);
+                        clearCloseTimer();
                         setOpenDropdown((current) => (current === item.dropdown ? null : item.dropdown ?? null));
                       }}
                       className={cn(
@@ -232,7 +262,9 @@ export function LuxuryTopNavbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="absolute left-1/2 top-[calc(100%+10px)] hidden w-[min(96vw,760px)] -translate-x-1/2 rounded-[24px] border border-[#ff9fb4]/24 bg-[linear-gradient(158deg,rgba(16,7,11,0.94),rgba(10,4,8,0.96))] p-6 shadow-[0_28px_66px_rgba(0,0,0,0.66),0_0_26px_rgba(222,48,80,0.18),inset_0_1px_0_rgba(255,238,243,0.12)] lg:block"
+              onMouseEnter={clearCloseTimer}
+              onMouseLeave={scheduleDropdownClose}
+              className="absolute left-1/2 top-[calc(100%+2px)] hidden w-[min(96vw,760px)] -translate-x-1/2 rounded-[24px] border border-[#ff9fb4]/24 bg-[linear-gradient(158deg,rgba(16,7,11,0.94),rgba(10,4,8,0.96))] p-6 shadow-[0_28px_66px_rgba(0,0,0,0.66),0_0_26px_rgba(222,48,80,0.18),inset_0_1px_0_rgba(255,238,243,0.12)] lg:block"
             >
               <div className="pointer-events-none absolute inset-0 rounded-[inherit] bg-[radial-gradient(44%_38%_at_50%_0%,rgba(234,58,88,0.2),rgba(234,58,88,0)_74%)]" />
               <div className="relative grid grid-cols-2 gap-6">

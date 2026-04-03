@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 import {
   BookOpen,
@@ -65,17 +66,18 @@ const serviceItems: ServiceItem[] = [
 
 export function ServicesGridSection() {
   return (
-    <section
-      id="servizi"
-      className="services-luxury-section relative overflow-hidden py-20 md:py-24"
-      style={{
-        fontFamily: "var(--font-space)",
-        backgroundImage: "url('/backgrounds/sfondotest.webp')",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center center",
-        backgroundSize: "cover",
-      }}
-    >
+    <section id="servizi" className="services-luxury-section relative overflow-hidden py-20 md:py-24" style={{ fontFamily: "var(--font-space)" }}>
+      <Image
+        src="/backgrounds/sfondotest.png"
+        alt=""
+        fill
+        quality={95}
+        sizes="100vw"
+        loading="lazy"
+        className="pointer-events-none absolute inset-0 z-0 object-cover object-center"
+        aria-hidden="true"
+      />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0.36))]" />
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 md:px-10 lg:px-12">
         <header className="mx-auto max-w-3xl text-center">
           <p className="luxury-heading-pill relative isolate inline-flex rounded-[14px] px-4 py-1.5 text-xs font-semibold tracking-[0.18em] text-white md:text-sm">

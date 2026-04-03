@@ -164,9 +164,9 @@ export function CrimsonLampCardsSection({
                         </span>
                       </div>
 
-                      <h4 className="mt-4 text-center text-[2.05rem] font-semibold leading-[1.05] tracking-[-0.02em] text-[#fff5f2]">
+                      <h3 className="mt-4 text-center text-[2.05rem] font-semibold leading-[1.05] tracking-[-0.02em] text-[#fff5f2]">
                         {card.title}
-                      </h4>
+                      </h3>
 
                       <ul className="mt-5 space-y-2.5">
                         {card.points.map((point) => (
