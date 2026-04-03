@@ -2,6 +2,8 @@
 
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
@@ -16,12 +18,12 @@ type MenuItem = {
 };
 
 const menuItems: MenuItem[] = [
-  { id: "servizi", label: "Servizi", href: "#servizi", dropdown: "servizi" },
-  { id: "zone", label: "Zone di Roma", href: "#zone-di-roma", dropdown: "zone" },
+  { id: "servizi", label: "Servizi", href: "/#servizi", dropdown: "servizi" },
+  { id: "zone", label: "Zone di Roma", href: "/#zone-di-roma", dropdown: "zone" },
   { id: "guide", label: "Guide", href: "/assistenza-a-domicilio" },
-  { id: "faq", label: "FAQ", href: "#faq" },
-  { id: "recensioni", label: "Recensioni", href: "#recensioni" },
-  { id: "contatti", label: "Contatti", href: "#contatti" },
+  { id: "faq", label: "FAQ", href: "/#faq" },
+  { id: "recensioni", label: "Recensioni", href: "/#recensioni" },
+  { id: "contatti", label: "Contatti", href: "/#contatti" },
 ];
 
 const serviziLinks = [
@@ -126,21 +128,25 @@ export function LuxuryTopNavbar() {
             compact ? "py-2.5 lg:py-2.5" : "py-3 lg:py-3.5",
           )}
         >
-          <a
-            href="#home"
+          <Link
+            href="/"
             onClick={() => {
               setActiveItem("home");
               closeMenus();
             }}
-            className="group inline-flex items-center gap-3"
+            className="group inline-flex shrink-0 items-center"
           >
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-[12px] border border-[#ff97ae]/36 bg-[linear-gradient(160deg,rgba(170,22,46,0.58),rgba(74,12,24,0.72))] text-[0.8rem] font-semibold tracking-[0.04em] text-[#fff2f6] shadow-[0_10px_20px_rgba(0,0,0,0.36),inset_0_1px_0_rgba(255,236,242,0.24)] transition-transform duration-300 group-hover:scale-[1.03]">
-              AR
+            <span className="relative block h-9 w-[220px] shrink-0 sm:h-10 sm:w-[268px] md:h-11 md:w-[300px] lg:h-12 lg:w-[340px]">
+              <Image
+                src="/brand/assistenza-roma-pc-menu-cut.webp"
+                alt="Assistenza Roma PC"
+                fill
+                sizes="(max-width: 640px) 220px, (max-width: 768px) 268px, (max-width: 1024px) 300px, 340px"
+                className="object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]"
+                priority
+              />
             </span>
-            <span className="hidden text-[0.93rem] font-semibold tracking-[0.04em] text-[#fbe8ee] sm:inline-block">
-              Assistenza Roma PC
-            </span>
-          </a>
+          </Link>
 
           <div className="hidden lg:flex items-center gap-1.5">
             {menuItems.map((item) => {
@@ -150,14 +156,13 @@ export function LuxuryTopNavbar() {
               return (
                 <div key={item.id} className="relative">
                   {item.dropdown ? (
-                    <button
-                      type="button"
+                    <Link
+                      href={item.href}
                       onMouseEnter={() => openDropdownMenu(item.dropdown ?? null)}
                       onFocus={() => openDropdownMenu(item.dropdown ?? null)}
                       onClick={() => {
                         setActiveItem(item.id);
-                        clearCloseTimer();
-                        setOpenDropdown((current) => (current === item.dropdown ? null : item.dropdown ?? null));
+                        closeMenus();
                       }}
                       className={cn(
                         "group relative inline-flex items-center gap-1.5 rounded-[12px] px-3.5 py-2 text-[0.88rem] font-medium transition-all duration-250",
@@ -187,9 +192,9 @@ export function LuxuryTopNavbar() {
                             : "opacity-0",
                         )}
                       />
-                    </button>
+                    </Link>
                   ) : (
-                    <a
+                    <Link
                       href={item.href}
                       onClick={() => {
                         setActiveItem(item.id);
@@ -217,21 +222,16 @@ export function LuxuryTopNavbar() {
                             : "opacity-0",
                         )}
                       />
-                    </a>
+                    </Link>
                   )}
                 </div>
               );
             })}
           </div>
 
-          <div className="hidden lg:flex items-center gap-2.5">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#ff9eb3]/24 bg-[linear-gradient(150deg,rgba(86,14,28,0.42),rgba(38,10,18,0.3))] px-3 py-1.5 text-[0.72rem] font-semibold tracking-[0.08em] text-[#ffd6df]">
-              <span className="h-[6px] w-[6px] rounded-full bg-[#ff4d71] shadow-[0_0_10px_rgba(255,78,108,0.52)]" />
-              Disponibile 7/7
-            </span>
-
-            <a
-              href="#contatti"
+          <div className="hidden lg:flex items-center">
+            <Link
+              href="/#contatti"
               onClick={() => {
                 setActiveItem("contatti");
                 closeMenus();
@@ -240,7 +240,7 @@ export function LuxuryTopNavbar() {
             >
               <span className="pointer-events-none absolute inset-x-[12%] top-[2px] h-[42%] rounded-full bg-[linear-gradient(180deg,rgba(255,214,224,0.56),rgba(255,214,224,0)_100%)]" />
               <span className="relative">Richiedi assistenza</span>
-            </a>
+            </Link>
           </div>
 
           <button
@@ -275,14 +275,14 @@ export function LuxuryTopNavbar() {
                   <ul className="mt-3 space-y-2.5">
                     {(openDropdown === "servizi" ? serviziLinks : zoneLinks).map((item) => (
                       <li key={item.label}>
-                        <a
+                        <Link
                           href={item.href}
                           onClick={closeMenus}
                           className="group inline-flex items-center gap-2 text-[0.92rem] text-[#f6d8e0]/84 transition-colors duration-250 hover:text-[#fff4f8]"
                         >
                           <span className="h-[5px] w-[5px] rounded-full bg-[#ff6f92]/68 shadow-[0_0_10px_rgba(255,111,146,0.34)] transition-transform duration-250 group-hover:scale-125" />
                           <span>{item.label}</span>
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -295,14 +295,14 @@ export function LuxuryTopNavbar() {
                   <ul className="mt-3 space-y-2.5">
                     {(openDropdown === "servizi" ? zoneLinks : quartieriLinks).map((item) => (
                       <li key={item.label}>
-                        <a
+                        <Link
                           href={item.href}
                           onClick={closeMenus}
                           className="group inline-flex items-center gap-2 text-[0.92rem] text-[#f6d8e0]/84 transition-colors duration-250 hover:text-[#fff4f8]"
                         >
                           <span className="h-[5px] w-[5px] rounded-full bg-[#ff6f92]/56 shadow-[0_0_10px_rgba(255,111,146,0.24)] transition-transform duration-250 group-hover:scale-125" />
                           <span>{item.label}</span>
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -324,7 +324,7 @@ export function LuxuryTopNavbar() {
               <ul className="space-y-1.5">
                 {menuItems.map((item) => (
                   <li key={item.id}>
-                    <a
+                    <Link
                       href={item.href}
                       onClick={() => {
                         setActiveItem(item.id);
@@ -333,14 +333,14 @@ export function LuxuryTopNavbar() {
                       className="block rounded-[11px] border border-transparent px-3 py-2.5 text-[0.92rem] text-[#f6d8e0]/88 transition-colors duration-250 hover:border-[#ff9fb4]/22 hover:bg-[linear-gradient(160deg,rgba(106,18,36,0.22),rgba(34,10,16,0.2))] hover:text-[#fff4f8]"
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
 
               <div className="mt-3 border-t border-[#ff9fb4]/16 pt-3">
-                <a
-                  href="#contatti"
+                <Link
+                  href="/#contatti"
                   onClick={() => {
                     setActiveItem("contatti");
                     closeMenus();
@@ -348,7 +348,7 @@ export function LuxuryTopNavbar() {
                   className="inline-flex w-full items-center justify-center rounded-[12px] border border-[#ffbfd0]/64 bg-[linear-gradient(156deg,#de3157_0%,#b21438_56%,#760b20_100%)] px-4 py-2.5 text-[0.88rem] font-semibold text-[#fff8fa] shadow-[0_14px_30px_rgba(88,14,30,0.68),inset_0_1px_0_rgba(255,242,246,0.36)]"
                 >
                   Richiedi assistenza
-                </a>
+                </Link>
               </div>
             </motion.div>
           ) : null}

@@ -12,7 +12,6 @@ const cspReportOnly = [
   "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com",
   "frame-src https://www.googletagmanager.com",
   "form-action 'self' https://wa.me",
-  "upgrade-insecure-requests",
 ].join("; ");
 
 const nextConfig: NextConfig = {
