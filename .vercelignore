@@ -1,0 +1,11 @@
+.git
+.next
+node_modules
+restore-points
+reports
+logs
+test-dir-temp
+*.zip
+audit-*.png
+audit-*.json
+tmp-services-check.png
